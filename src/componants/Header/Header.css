@@ -1,0 +1,15 @@
+.logo-style{
+    
+    font-family: fantasy;
+    font-weight: lighter;
+}
+.menu a{
+    margin-left: 20px;
+    text-decoration: none;
+    color: aliceblue;
+    font-family: cursive;
+
+}
+.menu a:hover{
+    color: burlywood;
+}

@@ -9,6 +9,7 @@ import Login from './componants/Login/Login';
 import Register from './componants/Register/Register';
 import NotFound from './componants/NotFound/NotFound';
 import PlayersDetails from './componants/PlayersDetails/PlayersDetails';
+import RequireAuth from './RequireAuth';
 
 
 function App() {
@@ -18,7 +19,11 @@ function App() {
      <Header></Header>
      <Routes>
        <Route path='/' element={<Home></Home>}></Route>
-       <Route path='/players' element={<Players></Players>}></Route>
+       <Route path='/players' element={
+         <RequireAuth>
+           <Players></Players>
+         </RequireAuth>
+       }></Route>
        <Route path='/login' element={<Login></Login>}></Route>
        <Route path='/register' element={<Register></Register>}></Route>
        <Route path='/food/:fooddet' element={<PlayersDetails></PlayersDetails>}></Route>

@@ -1,10 +1,16 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-// const [user] = useAuthState(auth);
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+// 
 const Register = () => {
+    const [user] = useAuthState(auth);
+
+
    
 
     const [userInfo ,setUserInfo] = useState({
@@ -67,6 +73,36 @@ const Register = () => {
         Emailloading,
         Emailerror,
       ] = useCreateUserWithEmailAndPassword(auth);
+
+
+      
+     const navigate = useNavigate();
+     const location = useLocation();
+     const from = location.state?.from?.pathname || '/';
+
+      useEffect(()=>{
+        if(Emailerror){
+            toast(Emailerror?.message)
+        }
+
+   },[Emailerror])
+   useEffect(()=>{
+    if(user){
+        navigate(from)
+    }
+  },[user])
+
+
+      if(Emailloading){
+        return <p className='text-center'>Loading....</p>
+     }
+
+  
+
+  
+
+    
+    
     return (
         <div>
             <h2>register</h2>
@@ -92,7 +128,8 @@ const Register = () => {
   <Button onClick={() => createUserWithEmailAndPassword(userInfo.email, userInfo.password)} variant="primary" type="submit">
 Register
   </Button>
-  <p>{Emailloading}</p>
+  
+  <ToastContainer></ToastContainer>
 </Form>
         </div>
     );

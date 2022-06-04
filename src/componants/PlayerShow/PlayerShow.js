@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './PlayerShow.css'
 
 const PlayerShow = ({player}) => {
@@ -16,7 +17,7 @@ const PlayerShow = ({player}) => {
   </Card.Body>
   
   <Card.Body>
-    <p className='bitton'><button className='btn btn-outline-primary'>see Detailes</button></p>
+    <p className='bitton'><Link to={`/food/${strCategory}`} className='btn btn-outline-primary'>see Detailes</Link></p>
   </Card.Body>
 </Card>
         </div>

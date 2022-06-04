@@ -1,0 +1,12 @@
+.card-text{
+    color: brown;
+    font-family: cursive;
+    
+}
+.my-card{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}

@@ -10,4 +10,20 @@
     margin-top: 120px;
     margin-left: 30px;
     margin-right: 30px;
+
+}
+.text-part{
+    margin-top: 190px;
+}
+.text{
+    color:navy;
+    font-family: fantasy;
+    font-weight: bolder;
+}
+.player{
+    margin-left: 120px;
+    color: aliceblue;
+}
+.world{
+    margin-left: 220px;
 }
